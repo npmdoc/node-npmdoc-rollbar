@@ -1,0 +1,2140 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://rollbar.com/docs/notifier/node_rollbar/"
+
+    >rollbar (v0.6.5)</a>
+</h1>
+<h4>A standalone (Node.js) client for Rollbar</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rollbar">module rollbar</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.Error">
+            function <span class="apidocSignatureSpan">rollbar.</span>Error
+            <span class="apidocSignatureSpan">(message, nested)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.Error.super_">
+            function <span class="apidocSignatureSpan">rollbar.</span>Error.super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.errorHandler">
+            function <span class="apidocSignatureSpan">rollbar.</span>errorHandler
+            <span class="apidocSignatureSpan">(accessToken, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.handleError">
+            function <span class="apidocSignatureSpan">rollbar.</span>handleError
+            <span class="apidocSignatureSpan">(err, req, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.handleErrorWithPayloadData">
+            function <span class="apidocSignatureSpan">rollbar.</span>handleErrorWithPayloadData
+            <span class="apidocSignatureSpan">(err, payloadData, req, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.handleUncaughtExceptions">
+            function <span class="apidocSignatureSpan">rollbar.</span>handleUncaughtExceptions
+            <span class="apidocSignatureSpan">(accessToken, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.handleUncaughtExceptionsAndRejections">
+            function <span class="apidocSignatureSpan">rollbar.</span>handleUncaughtExceptionsAndRejections
+            <span class="apidocSignatureSpan">(accessToken, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.handleUnhandledRejections">
+            function <span class="apidocSignatureSpan">rollbar.</span>handleUnhandledRejections
+            <span class="apidocSignatureSpan">(accessToken, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.init">
+            function <span class="apidocSignatureSpan">rollbar.</span>init
+            <span class="apidocSignatureSpan">(accessToken, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.reportMessage">
+            function <span class="apidocSignatureSpan">rollbar.</span>reportMessage
+            <span class="apidocSignatureSpan">(message, level, req, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.reportMessageWithPayloadData">
+            function <span class="apidocSignatureSpan">rollbar.</span>reportMessageWithPayloadData
+            <span class="apidocSignatureSpan">(message, payloadData, req, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.wait">
+            function <span class="apidocSignatureSpan">rollbar.</span>wait
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rollbar.</span>api</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rollbar.</span>deploy</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rollbar.</span>logger</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rollbar.</span>notifier</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rollbar.</span>parser</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rollbar.</span>parser.cache</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rollbar.Error">module rollbar.Error</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.Error.Error">
+            function <span class="apidocSignatureSpan">rollbar.</span>Error
+            <span class="apidocSignatureSpan">(message, nested)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.Error.super_">
+            function <span class="apidocSignatureSpan">rollbar.Error.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rollbar.Error.super_">module rollbar.Error.super_</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.Error.super_.super_">
+            function <span class="apidocSignatureSpan">rollbar.Error.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.Error.super_.captureStackTrace">
+            function <span class="apidocSignatureSpan">rollbar.Error.super_.</span>captureStackTrace
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">rollbar.Error.super_.</span>stackTraceLimit</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rollbar.api">module rollbar.api</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.api.init">
+            function <span class="apidocSignatureSpan">rollbar.api.</span>init
+            <span class="apidocSignatureSpan">(accessToken, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.api.postItem">
+            function <span class="apidocSignatureSpan">rollbar.api.</span>postItem
+            <span class="apidocSignatureSpan">(item, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rollbar.api.</span>accessToken</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">rollbar.api.</span>VERSION</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">rollbar.api.</span>endpoint</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rollbar.deploy">module rollbar.deploy</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.deploy.createDeploy">
+            function <span class="apidocSignatureSpan">rollbar.deploy.</span>createDeploy
+            <span class="apidocSignatureSpan">(accessToken, params, opts, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.deploy.getDeploy">
+            function <span class="apidocSignatureSpan">rollbar.deploy.</span>getDeploy
+            <span class="apidocSignatureSpan">(accessToken, deployId, opts, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.deploy.listDeploys">
+            function <span class="apidocSignatureSpan">rollbar.deploy.</span>listDeploys
+            <span class="apidocSignatureSpan">(accessToken, pageNum, opts, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rollbar.logger">module rollbar.logger</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.logger.error">
+            function <span class="apidocSignatureSpan">rollbar.logger.</span>error
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.logger.log">
+            function <span class="apidocSignatureSpan">rollbar.logger.</span>log
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rollbar.notifier">module rollbar.notifier</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.notifier._extractIp">
+            function <span class="apidocSignatureSpan">rollbar.notifier.</span>_extractIp
+            <span class="apidocSignatureSpan">(req)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.notifier._levelGteMinimum">
+            function <span class="apidocSignatureSpan">rollbar.notifier.</span>_levelGteMinimum
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.notifier._scrubRequestHeaders">
+            function <span class="apidocSignatureSpan">rollbar.notifier.</span>_scrubRequestHeaders
+            <span class="apidocSignatureSpan">(headersToScrub, headers)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.notifier._scrubRequestParams">
+            function <span class="apidocSignatureSpan">rollbar.notifier.</span>_scrubRequestParams
+            <span class="apidocSignatureSpan">(paramsToScrub, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.notifier.handleError">
+            function <span class="apidocSignatureSpan">rollbar.notifier.</span>handleError
+            <span class="apidocSignatureSpan">(err, req, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.notifier.handleErrorWithPayloadData">
+            function <span class="apidocSignatureSpan">rollbar.notifier.</span>handleErrorWithPayloadData
+            <span class="apidocSignatureSpan">(err, payloadData, req, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.notifier.init">
+            function <span class="apidocSignatureSpan">rollbar.notifier.</span>init
+            <span class="apidocSignatureSpan">(api, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.notifier.pendingItemsCount">
+            function <span class="apidocSignatureSpan">rollbar.notifier.</span>pendingItemsCount
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.notifier.reportMessage">
+            function <span class="apidocSignatureSpan">rollbar.notifier.</span>reportMessage
+            <span class="apidocSignatureSpan">(message, level, req, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.notifier.reportMessageWithPayloadData">
+            function <span class="apidocSignatureSpan">rollbar.notifier.</span>reportMessageWithPayloadData
+            <span class="apidocSignatureSpan">(message, payloadData, req, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.notifier.wait">
+            function <span class="apidocSignatureSpan">rollbar.notifier.</span>wait
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">rollbar.notifier.</span>VERSION</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rollbar.parser">module rollbar.parser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.parser.parseException">
+            function <span class="apidocSignatureSpan">rollbar.parser.</span>parseException
+            <span class="apidocSignatureSpan">(exc, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.parser.parseStack">
+            function <span class="apidocSignatureSpan">rollbar.parser.</span>parseStack
+            <span class="apidocSignatureSpan">(stack, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rollbar.parser.</span>cache</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rollbar.parser.</span>pendingReads</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rollbar.parser.cache">module rollbar.parser.cache</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.parser.cache.del">
+            function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>del
+            <span class="apidocSignatureSpan">(key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.parser.cache.dump">
+            function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>dump
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.parser.cache.dumpLru">
+            function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>dumpLru
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.parser.cache.forEach">
+            function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>forEach
+            <span class="apidocSignatureSpan">(fn, thisp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.parser.cache.get">
+            function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>get
+            <span class="apidocSignatureSpan">(key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.parser.cache.has">
+            function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>has
+            <span class="apidocSignatureSpan">(key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.parser.cache.keys">
+            function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>keys
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.parser.cache.lengthCalculator">
+            function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>lengthCalculator
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.parser.cache.reset">
+            function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>reset
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.parser.cache.set">
+            function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>set
+            <span class="apidocSignatureSpan">(key, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rollbar.parser.cache.values">
+            function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>values
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">rollbar.parser.cache.</span>itemCount</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">rollbar.parser.cache.</span>length</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">rollbar.parser.cache.</span>max</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rollbar" id="apidoc.module.rollbar">module rollbar</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.Error" id="apidoc.element.rollbar.Error">
+        function <span class="apidocSignatureSpan">rollbar.</span>Error
+        <span class="apidocSignatureSpan">(message, nested)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function RollbarError(message, nested)
+{
+  Error.call(this);
+  Error.captureStackTrace(this, this.constructor);
+
+  this.message = message;
+  this.nested = nested;
+  this.name = this.constructor.name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.Error.super_" id="apidoc.element.rollbar.Error.super_">
+        function <span class="apidocSignatureSpan">rollbar.</span>Error.super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Error() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.errorHandler" id="apidoc.element.rollbar.errorHandler">
+        function <span class="apidocSignatureSpan">rollbar.</span>errorHandler
+        <span class="apidocSignatureSpan">(accessToken, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">errorHandler = function (accessToken, options) {
+<span class="apidocCodeCommentSpan">  /*
+   * A middleware handler for connect and express.js apps. For a list
+   * of supported options, see the init() docs above.
+   *
+   * All exceptions thrown from inside an express or connect get/post/etc... handler
+   * will be sent to rollbar when this middleware is installed.
+   */
+</span>  exports.init(accessToken, options);
+  return function (err, req, res, next) {
+    var cb = function (rollbarErr) {
+      if (rollbarErr) {
+        logger.error(&#x27;Error reporting to rollbar, ignoring: &#x27; + rollbarErr);
+      }
+      return next(err, req, res);
+    };
+
+    if (!err) {
+      return next(err, req, res);
+    }
+
+    if (err instanceof Error) {
+      return notifier.handleError(err, req, cb);
+    }
+
+    return notifier.reportMessage(&#x27;Error: &#x27; + err, &#x27;error&#x27;, req, cb);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var app = express();
+
+app.get(&#x27;/&#x27;, function(req, res) {
+  // ...
+});
+
+// Use the rollbar error handler to send exceptions to your rollbar account
+app.use(rollbar.<span class="apidocCodeKeywordSpan">errorHandler</span>(&#x27;POST_SERVER_ITEM_ACCESS_TOKEN&#x27;));
+
+app.listen(6943);
+```
+
+### Using Hapi
+
+```js
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.handleError" id="apidoc.element.rollbar.handleError">
+        function <span class="apidocSignatureSpan">rollbar.</span>handleError
+        <span class="apidocSignatureSpan">(err, req, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">handleError = function (err, req, callback) {
+  if (typeof req === &#x27;function&#x27;) {
+    callback = req;
+    req = null;
+  }
+  if (err instanceof Error) {
+    return exports.handleErrorWithPayloadData(err, {}, req, callback);
+  }
+
+  var stringError;
+  try {
+    stringError = JSON.stringify(err);
+  } catch (e) {
+    stringError = stringify(err);
+  } finally {
+    return exports.reportMessage(stringError, &#x27;error&#x27;, req, callback);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+server.on(&#x27;request-error&#x27;, function(request, error) {
+// Note: before Hapi v8.0.0, this should be &#x27;internalError&#x27; instead of &#x27;request-error&#x27;
+var cb = function(rollbarErr) {
+  if (rollbarErr)
+    console.error(&#x27;Error reporting to rollbar, ignoring: &#x27;+rollbarErr);
+};
+if (error instanceof Error)
+  return rollbar.<span class="apidocCodeKeywordSpan">handleError</span>(error, request, cb);
+rollbar.reportMessage(&#x27;Error: &#x27;+error, &#x27;error&#x27;, request, cb);
+});
+// End Rollbar initialization code
+
+server.route({
+method: &#x27;GET&#x27;,
+path:&#x27;/throw_error&#x27;,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.handleErrorWithPayloadData" id="apidoc.element.rollbar.handleErrorWithPayloadData">
+        function <span class="apidocSignatureSpan">rollbar.</span>handleErrorWithPayloadData
+        <span class="apidocSignatureSpan">(err, payloadData, req, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">handleErrorWithPayloadData = function (err, payloadData, req, callback) {
+  // Allow the user to call with an optional request and callback
+  // e.g. handleErrorWithPayloadData(err, payloadData, req, callback)
+  //   or handleErrorWithPayloadData(err, payloadData, callback)
+  //   or handleErrorPayloadData(err, payloadData)
+  if (typeof req === &#x27;function&#x27;) {
+    callback = req;
+    req = null;
+  }
+
+  if (!(err instanceof Error)) {
+    if (typeof callback === &#x27;function&#x27;) {
+      return callback(new Error(&#x27;handleError was passed something other than an Error: &#x27; + err));
+    }
+  }
+  addItem({error: err, payload: payloadData, request: req}, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+  });
+
+  // if you have a request and a callback, pass the callback last
+  rollbar.handleError(e, request, callback);
+
+  // to specify payload options - like extra data, or the level - use handleErrorWithPayloadData
+  rollbar.<span class="apidocCodeKeywordSpan">handleErrorWithPayloadData</span>(e, {level: &#x22;warning&#x22;, custom: {someKey
+: &#x22;arbitrary value&#x22;}});
+
+  // can also take request and callback, like handleError:
+  rollbar.handleErrorWithPayloadData(e, {level: &#x22;info&#x22;}, request);
+  rollbar.handleErrorWithPayloadData(e, {level: &#x22;info&#x22;}, callback);
+  rollbar.handleErrorWithPayloadData(e, {level: &#x22;info&#x22;}, request, callback);
+}
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.handleUncaughtExceptions" id="apidoc.element.rollbar.handleUncaughtExceptions">
+        function <span class="apidocSignatureSpan">rollbar.</span>handleUncaughtExceptions
+        <span class="apidocSignatureSpan">(accessToken, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">handleUncaughtExceptions = function (accessToken, options) {
+<span class="apidocCodeCommentSpan">  /*
+   * Registers a handler for the process.uncaughtException event
+   *
+   * If options.exitOnUncaughtException is set to true, the notifier will
+   * immediately send the uncaught exception + all queued items to rollbar,
+   * then call process.exit(1).
+   *
+   * Note: The node.js authors advise against using these type of handlers.
+   * More info: http://nodejs.org/api/process.html#process_event_uncaughtexception
+   *
+   */
+</span>
+  // Default to not exiting on uncaught exceptions unless options.exitOnUncaughtException is set.
+  options = options || {};
+  var exitOnUncaught = options.exitOnUncaughtException === undefined ?
+        false : !!options.exitOnUncaughtException;
+  delete options.exitOnUncaughtException;
+
+  exports.init(accessToken, options);
+
+  if (initialized) {
+    process.on(&#x27;uncaughtException&#x27;, function (err) {
+      logger.error(&#x27;Handling uncaught exception.&#x27;);
+      logger.error(err);
+
+      notifier.handleError(err, function (err) {
+        if (err) {
+          logger.error(&#x27;Encountered an error while handling an uncaught exception.&#x27;);
+          logger.error(err);
+        }
+
+        if (exitOnUncaught) {
+          process.exit(1);
+        }
+      });
+    });
+  } else {
+    logger.error(&#x27;Rollbar is not initialized. Uncaught exceptions will not be tracked.&#x27;);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var options = {
+  // Call process.exit(1) when an uncaught exception occurs but after reporting all
+  // pending errors to Rollbar.
+  //
+  // Default: false
+  exitOnUncaughtException: true
+};
+rollbar.<span class="apidocCodeKeywordSpan">handleUncaughtExceptions</span>(&#x22;POST_SERVER_ITEM_ACCESS_TOKEN&#x22;, options);
+```
+
+#### Unhandled rejections
+
+Rollbar can also be registered as a handler for any unhandled Promise rejections in your Node process:
+
+```js
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.handleUncaughtExceptionsAndRejections" id="apidoc.element.rollbar.handleUncaughtExceptionsAndRejections">
+        function <span class="apidocSignatureSpan">rollbar.</span>handleUncaughtExceptionsAndRejections
+        <span class="apidocSignatureSpan">(accessToken, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">handleUncaughtExceptionsAndRejections = function (accessToken, options) {
+  exports.handleUncaughtExceptions(accessToken, options);
+  exports.handleUnhandledRejections(accessToken, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+rollbar.handleUnhandledRejections(&#x22;POST_SERVER_ITEM_ACCESS_TOKEN&#x22;);
+```
+
+To simplify enabling both handlers, you can use the `handleUncaughtExceptionsAndRejections` method.
+
+```js
+rollbar.<span class="apidocCodeKeywordSpan">handleUncaughtExceptionsAndRejections</span>(&#x22;POST_SERVER_ITEM_ACCESS_TOKEN&#x22
+;, options);
+```
+
+### Caught exceptions
+
+To report an exception that you have caught, use [`handleError`](https://github.com/rollbar/node_rollbar/blob/master/rollbar.js#
+L152) or the full-powered [`handleErrorWithPayloadData`](https://github.com/rollbar/node_rollbar/blob/master/rollbar.js#L176):
+
+```js
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.handleUnhandledRejections" id="apidoc.element.rollbar.handleUnhandledRejections">
+        function <span class="apidocSignatureSpan">rollbar.</span>handleUnhandledRejections
+        <span class="apidocSignatureSpan">(accessToken, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">handleUnhandledRejections = function (accessToken, options) {
+<span class="apidocCodeCommentSpan">  /*
+   * Registers a handler for the process.unhandledRejection event.
+   */
+</span>
+  options = options || {};
+
+  exports.init(accessToken, options);
+
+  if (initialized) {
+    process.on(&#x27;unhandledRejection&#x27;, function (reason) {
+      logger.error(&#x27;Handling unhandled rejection.&#x27;);
+      logger.error(reason);
+
+      notifier.handleError(reason, function (err) {
+        if (err) {
+          logger.error(&#x27;Encountered an error while handling an unhandled rejection.&#x27;);
+          logger.error(err);
+        }
+      })
+    });
+  } else {
+    logger.error(&#x27;Rollbar is not initialized. Uncaught rejections will not be tracked.&#x27;);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+#### Unhandled rejections
+
+Rollbar can also be registered as a handler for any unhandled Promise rejections in your Node process:
+
+```js
+rollbar.<span class="apidocCodeKeywordSpan">handleUnhandledRejections</span>(&#x22;POST_SERVER_ITEM_ACCESS_TOKEN&#x22;);
+```
+
+To simplify enabling both handlers, you can use the `handleUncaughtExceptionsAndRejections` method.
+
+```js
+rollbar.handleUncaughtExceptionsAndRejections(&#x22;POST_SERVER_ITEM_ACCESS_TOKEN&#x22;, options);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.init" id="apidoc.element.rollbar.init">
+        function <span class="apidocSignatureSpan">rollbar.</span>init
+        <span class="apidocSignatureSpan">(accessToken, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (accessToken, options) {
+<span class="apidocCodeCommentSpan">  /*
+   * Initialize the rollbar library.
+   *
+   * For more information on each option, see http://rollbar.com/docs/api_items/
+   *
+   * Supported options, (all optional):
+   *
+   *  host - Default: os.hostname() - the hostname of the server the node.js process is running on
+   *  environment - Default: &#x27;unspecified&#x27; - the environment the code is running in. e.g. &#x27;staging&#x27;
+   *  endpoint - Default: &#x27;https://api.rollbar.com/api/1/&#x27; - the url to send items to
+   *  root - the path to your code, (not including any trailing slash) which will be used to link
+   *    source files on rollbar
+   *  branch - the branch in your version control system for this code
+   *  codeVersion - the version or revision of your code
+   *  enabled - Default: true - determines if errors gets reported to Rollbar
+   *
+   */
+</span>  if (!initialized) {
+    options = options || {};
+    if (!accessToken &#x26;&#x26; options.enabled !== false) {
+      logger.error(&#x27;Missing access_token.&#x27;);
+      return;
+    }
+
+    options.environment = options.environment || process.env.NODE_ENV || &#x27;unspecified&#x27;;
+
+    api.init(accessToken, options);
+    notifier.init(api, options);
+    initialized = true;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+&#x3c;!-- Sub:[TOC] --&#x3e;
+
+## Quick start
+
+```js
+// include and initialize the rollbar library with your access token
+var rollbar = require(&#x22;rollbar&#x22;);
+rollbar.<span class="apidocCodeKeywordSpan">init</span>(&#x22;POST_SERVER_ITEM_ACCESS_TOKEN&#x22;);
+
+// record a generic message and send to rollbar
+rollbar.reportMessage(&#x22;Hello world!&#x22;);
+
+// more is required to automatically detect and report errors.
+// keep reading for details.
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.reportMessage" id="apidoc.element.rollbar.reportMessage">
+        function <span class="apidocSignatureSpan">rollbar.</span>reportMessage
+        <span class="apidocSignatureSpan">(message, level, req, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reportMessage = function (message, level, req, callback) {
+  return exports.reportMessageWithPayloadData(message, {level: level}, req, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+// include and initialize the rollbar library with your access token
+var rollbar = require(&#x22;rollbar&#x22;);
+rollbar.init(&#x22;POST_SERVER_ITEM_ACCESS_TOKEN&#x22;);
+
+// record a generic message and send to rollbar
+rollbar.<span class="apidocCodeKeywordSpan">reportMessage</span>(&#x22;Hello world!&#x22;);
+
+// more is required to automatically detect and report errors.
+// keep reading for details.
+```
+
+&#x3c;!-- RemoveNextIfProject --&#x3e;
+Be sure to replace ```POST_SERVER_ITEM_ACCESS_TOKEN``` with your project&#x27;s ```post_server_item``` access token, which you can
+ find in the Rollbar.com interface.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.reportMessageWithPayloadData" id="apidoc.element.rollbar.reportMessageWithPayloadData">
+        function <span class="apidocSignatureSpan">rollbar.</span>reportMessageWithPayloadData
+        <span class="apidocSignatureSpan">(message, payloadData, req, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reportMessageWithPayloadData = function (message, payloadData, req, callback) {
+  if (SETTINGS.showReportedMessageTraces) {
+    logger.log(message, new Error().stack);
+  }
+  addItem({message: message, payload: payloadData, request: req}, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// only the first param is required
+// valid severity levels: &#x22;critical&#x22;, &#x22;error&#x22;, &#x22;warning&#x22;, &#x22;info&#x22;, &#x22;debug&#x22;
+rollbar.reportMessage(&#x22;Response time exceeded threshold of 1s&#x22;, &#x22;warning&#x22;, request, callback);
+
+// reports a string message along with additional data conforming to the Rollbar API Schema
+// documented here: https://rollbar.com/docs/api/items_post/
+// only the first two params are required
+rollbar.<span class="apidocCodeKeywordSpan">reportMessageWithPayloadData</span>(&#x22;Response time exceeded threshold of 1s&#x22
+;, {
+    level: &#x22;warning&#x22;,
+    custom: {
+      threshold: 1,
+      timeElapsed: 2.3
+    }
+  }, request, callback);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.wait" id="apidoc.element.rollbar.wait">
+        function <span class="apidocSignatureSpan">rollbar.</span>wait
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">wait = function (callback) {
+  if (exports.pendingItemsCount() === 0) {
+    callback();
+  } else {
+    waitCallback = callback;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+
+## Waiting on pending items
+
+There may be some cases where you need to do a hard `process.exit(1)`, but you also don&#x27;t
+want to lose any errors that may be in-flight to Rollbar at the time.  That is where the
+`rollbar.<span class="apidocCodeKeywordSpan">wait</span>(cb)` function comes into play.  It will execute the callback when there
+ are
+no pending items being sent to Rollbar.  It could execute immediately (if there are none
+pending), or it could take a few seconds while the queue is flushed.
+
+```javascript
+var rollbar = require(&#x27;rollbar&#x27;);
+rollbar.init(rollbarToken);
+rollbar.handleError(&#x27;Test&#x27;);
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rollbar.Error" id="apidoc.module.rollbar.Error">module rollbar.Error</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.Error.Error" id="apidoc.element.rollbar.Error.Error">
+        function <span class="apidocSignatureSpan">rollbar.</span>Error
+        <span class="apidocSignatureSpan">(message, nested)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function RollbarError(message, nested)
+{
+  Error.call(this);
+  Error.captureStackTrace(this, this.constructor);
+
+  this.message = message;
+  this.nested = nested;
+  this.name = this.constructor.name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.Error.super_" id="apidoc.element.rollbar.Error.super_">
+        function <span class="apidocSignatureSpan">rollbar.Error.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Error() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rollbar.Error.super_" id="apidoc.module.rollbar.Error.super_">module rollbar.Error.super_</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.Error.super_.super_" id="apidoc.element.rollbar.Error.super_.super_">
+        function <span class="apidocSignatureSpan">rollbar.Error.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Error() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.Error.super_.captureStackTrace" id="apidoc.element.rollbar.Error.super_.captureStackTrace">
+        function <span class="apidocSignatureSpan">rollbar.Error.super_.</span>captureStackTrace
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function captureStackTrace() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rollbar.api" id="apidoc.module.rollbar.api">module rollbar.api</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.api.init" id="apidoc.element.rollbar.api.init">
+        function <span class="apidocSignatureSpan">rollbar.api.</span>init
+        <span class="apidocSignatureSpan">(accessToken, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (accessToken, options) {
+  var opt, portCheck;
+
+  options = options || {};
+  exports.accessToken = accessToken;
+  exports.endpoint = options.endpoint || exports.endpoint;
+
+  for (opt in options) {
+    if (options.hasOwnProperty(opt)) {
+      SETTINGS[opt] = options[opt];
+    }
+  }
+
+  SETTINGS.endpointOpts = url.parse(exports.endpoint);
+  SETTINGS.protocol = SETTINGS.endpointOpts.protocol.split(&#x27;:&#x27;)[0];
+  SETTINGS.transport = {http: http, https: https}[SETTINGS.protocol];
+  SETTINGS.proxy = options.proxy;
+
+  portCheck = SETTINGS.endpointOpts.host.split(&#x27;:&#x27;);
+  if (portCheck.length &#x3e; 1) {
+    SETTINGS.endpointOpts.host = portCheck[0];
+    SETTINGS.port = parseInt(portCheck[1], 10);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+&#x3c;!-- Sub:[TOC] --&#x3e;
+
+## Quick start
+
+```js
+// include and initialize the rollbar library with your access token
+var rollbar = require(&#x22;rollbar&#x22;);
+rollbar.<span class="apidocCodeKeywordSpan">init</span>(&#x22;POST_SERVER_ITEM_ACCESS_TOKEN&#x22;);
+
+// record a generic message and send to rollbar
+rollbar.reportMessage(&#x22;Hello world!&#x22;);
+
+// more is required to automatically detect and report errors.
+// keep reading for details.
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.api.postItem" id="apidoc.element.rollbar.api.postItem">
+        function <span class="apidocSignatureSpan">rollbar.api.</span>postItem
+        <span class="apidocSignatureSpan">(item, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">postItem = function (item, callback) {
+  return postApi(&#x27;item/&#x27;, buildPayload(item), callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rollbar.deploy" id="apidoc.module.rollbar.deploy">module rollbar.deploy</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.deploy.createDeploy" id="apidoc.element.rollbar.deploy.createDeploy">
+        function <span class="apidocSignatureSpan">rollbar.deploy.</span>createDeploy
+        <span class="apidocSignatureSpan">(accessToken, params, opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createDeploy = function (accessToken, params, opts, callback) {
+  if (typeof callback != &#x27;function&#x27;)
+    callback = function(){};
+
+  var requestOpts = createRequestOpts(&#x27;POST&#x27;, &#x27;deploy/&#x27;, accessToken);
+
+  var req = https.request(requestOpts, function(res) {
+    handleResponse(res, callback);
+  });
+
+  var writeData = {};
+  try {
+    try {
+      writeData = JSON.stringify(params);
+    } catch (e) {
+      writedata = stringify(params);
+    }
+  } catch (e) {
+    logger.error(&#x27;Could not safe-stringify data.  Giving up&#x27;);
+    return callback(e);
+  }
+  req.write(writeData);
+  req.end();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Please refer to [the Rollbar API Spec](https://rollbar.com/docs/api/deploys/) for implementation
+details and deeper explanations of the options available.
+
+```javascript
+var deploy = require(&#x27;rollbar/deploy&#x27;);
+
+deploy.<span class="apidocCodeKeywordSpan">createDeploy</span>(&#x27;POST_SERVER_ITEM_ACCESS_TOKEN&#x27;, {
+    environment: &#x27;production&#x27;,
+    revision: &#x27;1.2.3&#x27;
+  });
+```
+
+## Help / Support
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.deploy.getDeploy" id="apidoc.element.rollbar.deploy.getDeploy">
+        function <span class="apidocSignatureSpan">rollbar.deploy.</span>getDeploy
+        <span class="apidocSignatureSpan">(accessToken, deployId, opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getDeploy = function (accessToken, deployId, opts, callback) {
+  if (typeof callback != &#x27;function&#x27;)
+    callback = function(){};
+
+  var params = [];
+  params.push(&#x27;access_token=&#x27;+accessToken);
+  var paramsStr = params.join(&#x27;&#x26;&#x27;);
+
+  var requestOpts = createRequestOpts(&#x27;GET&#x27;, &#x27;deploy/&#x27;+deployId+&#x27;/?&#x27;+paramsStr, accessToken);
+
+  var req = https.request(requestOpts, function(res) {
+    handleResponse(res, callback);
+  });
+
+  req.end();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.deploy.listDeploys" id="apidoc.element.rollbar.deploy.listDeploys">
+        function <span class="apidocSignatureSpan">rollbar.deploy.</span>listDeploys
+        <span class="apidocSignatureSpan">(accessToken, pageNum, opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">listDeploys = function (accessToken, pageNum, opts, callback) {
+  if (typeof pageNum != &#x27;number&#x27; || pageNum &#x3c; 1)
+    pageNum = 1;
+
+  if (typeof callback != &#x27;function&#x27;)
+    callback = function(){};
+
+  var params = [];
+  params.push(&#x27;page=&#x27;+pageNum);
+  params.push(&#x27;access_token=&#x27;+accessToken);
+  var paramsStr = params.join(&#x27;&#x26;&#x27;);
+
+
+  var requestOpts = createRequestOpts(&#x27;GET&#x27;, &#x27;deploys?&#x27;+paramsStr, accessToken);
+
+  var req = https.request(requestOpts, function(res) {
+    handleResponse(res, callback);
+  });
+
+  req.end();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rollbar.logger" id="apidoc.module.rollbar.logger">module rollbar.logger</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.logger.error" id="apidoc.element.rollbar.logger.error">
+        function <span class="apidocSignatureSpan">rollbar.logger.</span>error
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function disabled() {
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Begin Rollbar initialization code
+var rollbar = require(&#x27;rollbar&#x27;);
+rollbar.init(&#x27;POST_SERVER_ITEM_ACCESS_TOKEN&#x27;);
+server.on(&#x27;request-error&#x27;, function(request, error) {
+  // Note: before Hapi v8.0.0, this should be &#x27;internalError&#x27; instead of &#x27;request-error&#x27;
+  var cb = function(rollbarErr) {
+    if (rollbarErr)
+      console.<span class="apidocCodeKeywordSpan">error</span>(&#x27;Error reporting to rollbar, ignoring: &#x27;+rollbarErr);
+  };
+  if (error instanceof Error)
+    return rollbar.handleError(error, request, cb);
+  rollbar.reportMessage(&#x27;Error: &#x27;+error, &#x27;error&#x27;, request, cb);
+});
+// End Rollbar initialization code
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.logger.log" id="apidoc.element.rollbar.logger.log">
+        function <span class="apidocSignatureSpan">rollbar.logger.</span>log
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function disabled() {
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  handler: function (request, reply) {
+    throw new Error(&#x27;Example error manually thrown from route.&#x27;);
+  }
+});
+server.start(function(err) {
+  if (err)
+    throw err;
+  console.<span class="apidocCodeKeywordSpan">log</span>(&#x27;Server running at:&#x27;, server.info.uri);
+});
+```
+
+### Standalone
+
+In your main application, require and initialize using your access_token::
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rollbar.notifier" id="apidoc.module.rollbar.notifier">module rollbar.notifier</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.notifier._extractIp" id="apidoc.element.rollbar.notifier._extractIp">
+        function <span class="apidocSignatureSpan">rollbar.notifier.</span>_extractIp
+        <span class="apidocSignatureSpan">(req)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_extractIp = function (req) {
+  return extractIp(req);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.notifier._levelGteMinimum" id="apidoc.element.rollbar.notifier._levelGteMinimum">
+        function <span class="apidocSignatureSpan">rollbar.notifier.</span>_levelGteMinimum
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_levelGteMinimum = function (item) {
+  return levelGteMinimum(item);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.notifier._scrubRequestHeaders" id="apidoc.element.rollbar.notifier._scrubRequestHeaders">
+        function <span class="apidocSignatureSpan">rollbar.notifier.</span>_scrubRequestHeaders
+        <span class="apidocSignatureSpan">(headersToScrub, headers)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_scrubRequestHeaders = function (headersToScrub, headers) {
+  return scrubRequestHeaders(headers, headersToScrub ? {scrubHeaders: headersToScrub} : undefined);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.notifier._scrubRequestParams" id="apidoc.element.rollbar.notifier._scrubRequestParams">
+        function <span class="apidocSignatureSpan">rollbar.notifier.</span>_scrubRequestParams
+        <span class="apidocSignatureSpan">(paramsToScrub, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_scrubRequestParams = function (paramsToScrub, params) {
+  return scrubRequestParams(params, paramsToScrub ? {scrubFields: paramsToScrub} : undefined);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.notifier.handleError" id="apidoc.element.rollbar.notifier.handleError">
+        function <span class="apidocSignatureSpan">rollbar.notifier.</span>handleError
+        <span class="apidocSignatureSpan">(err, req, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">handleError = function (err, req, callback) {
+  if (typeof req === &#x27;function&#x27;) {
+    callback = req;
+    req = null;
+  }
+  if (err instanceof Error) {
+    return exports.handleErrorWithPayloadData(err, {}, req, callback);
+  }
+
+  var stringError;
+  try {
+    stringError = JSON.stringify(err);
+  } catch (e) {
+    stringError = stringify(err);
+  } finally {
+    return exports.reportMessage(stringError, &#x27;error&#x27;, req, callback);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+server.on(&#x27;request-error&#x27;, function(request, error) {
+// Note: before Hapi v8.0.0, this should be &#x27;internalError&#x27; instead of &#x27;request-error&#x27;
+var cb = function(rollbarErr) {
+  if (rollbarErr)
+    console.error(&#x27;Error reporting to rollbar, ignoring: &#x27;+rollbarErr);
+};
+if (error instanceof Error)
+  return rollbar.<span class="apidocCodeKeywordSpan">handleError</span>(error, request, cb);
+rollbar.reportMessage(&#x27;Error: &#x27;+error, &#x27;error&#x27;, request, cb);
+});
+// End Rollbar initialization code
+
+server.route({
+method: &#x27;GET&#x27;,
+path:&#x27;/throw_error&#x27;,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.notifier.handleErrorWithPayloadData" id="apidoc.element.rollbar.notifier.handleErrorWithPayloadData">
+        function <span class="apidocSignatureSpan">rollbar.notifier.</span>handleErrorWithPayloadData
+        <span class="apidocSignatureSpan">(err, payloadData, req, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">handleErrorWithPayloadData = function (err, payloadData, req, callback) {
+  // Allow the user to call with an optional request and callback
+  // e.g. handleErrorWithPayloadData(err, payloadData, req, callback)
+  //   or handleErrorWithPayloadData(err, payloadData, callback)
+  //   or handleErrorPayloadData(err, payloadData)
+  if (typeof req === &#x27;function&#x27;) {
+    callback = req;
+    req = null;
+  }
+
+  if (!(err instanceof Error)) {
+    if (typeof callback === &#x27;function&#x27;) {
+      return callback(new Error(&#x27;handleError was passed something other than an Error: &#x27; + err));
+    }
+  }
+  addItem({error: err, payload: payloadData, request: req}, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+  });
+
+  // if you have a request and a callback, pass the callback last
+  rollbar.handleError(e, request, callback);
+
+  // to specify payload options - like extra data, or the level - use handleErrorWithPayloadData
+  rollbar.<span class="apidocCodeKeywordSpan">handleErrorWithPayloadData</span>(e, {level: &#x22;warning&#x22;, custom: {someKey
+: &#x22;arbitrary value&#x22;}});
+
+  // can also take request and callback, like handleError:
+  rollbar.handleErrorWithPayloadData(e, {level: &#x22;info&#x22;}, request);
+  rollbar.handleErrorWithPayloadData(e, {level: &#x22;info&#x22;}, callback);
+  rollbar.handleErrorWithPayloadData(e, {level: &#x22;info&#x22;}, request, callback);
+}
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.notifier.init" id="apidoc.element.rollbar.notifier.init">
+        function <span class="apidocSignatureSpan">rollbar.notifier.</span>init
+        <span class="apidocSignatureSpan">(api, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (api, options) {
+  var opt;
+
+  SETTINGS.accessToken = api.accessToken;
+
+  apiClient = api;
+  options = options || {};
+
+  for (opt in options) {
+    if (options.hasOwnProperty(opt)) {
+      SETTINGS[opt] = options[opt];
+    }
+  }
+  initialized = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+&#x3c;!-- Sub:[TOC] --&#x3e;
+
+## Quick start
+
+```js
+// include and initialize the rollbar library with your access token
+var rollbar = require(&#x22;rollbar&#x22;);
+rollbar.<span class="apidocCodeKeywordSpan">init</span>(&#x22;POST_SERVER_ITEM_ACCESS_TOKEN&#x22;);
+
+// record a generic message and send to rollbar
+rollbar.reportMessage(&#x22;Hello world!&#x22;);
+
+// more is required to automatically detect and report errors.
+// keep reading for details.
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.notifier.pendingItemsCount" id="apidoc.element.rollbar.notifier.pendingItemsCount">
+        function <span class="apidocSignatureSpan">rollbar.notifier.</span>pendingItemsCount
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pendingItemsCount = function () {
+  return pendingItems.length;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.notifier.reportMessage" id="apidoc.element.rollbar.notifier.reportMessage">
+        function <span class="apidocSignatureSpan">rollbar.notifier.</span>reportMessage
+        <span class="apidocSignatureSpan">(message, level, req, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reportMessage = function (message, level, req, callback) {
+  return exports.reportMessageWithPayloadData(message, {level: level}, req, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+// include and initialize the rollbar library with your access token
+var rollbar = require(&#x22;rollbar&#x22;);
+rollbar.init(&#x22;POST_SERVER_ITEM_ACCESS_TOKEN&#x22;);
+
+// record a generic message and send to rollbar
+rollbar.<span class="apidocCodeKeywordSpan">reportMessage</span>(&#x22;Hello world!&#x22;);
+
+// more is required to automatically detect and report errors.
+// keep reading for details.
+```
+
+&#x3c;!-- RemoveNextIfProject --&#x3e;
+Be sure to replace ```POST_SERVER_ITEM_ACCESS_TOKEN``` with your project&#x27;s ```post_server_item``` access token, which you can
+ find in the Rollbar.com interface.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.notifier.reportMessageWithPayloadData" id="apidoc.element.rollbar.notifier.reportMessageWithPayloadData">
+        function <span class="apidocSignatureSpan">rollbar.notifier.</span>reportMessageWithPayloadData
+        <span class="apidocSignatureSpan">(message, payloadData, req, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reportMessageWithPayloadData = function (message, payloadData, req, callback) {
+  if (SETTINGS.showReportedMessageTraces) {
+    logger.log(message, new Error().stack);
+  }
+  addItem({message: message, payload: payloadData, request: req}, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// only the first param is required
+// valid severity levels: &#x22;critical&#x22;, &#x22;error&#x22;, &#x22;warning&#x22;, &#x22;info&#x22;, &#x22;debug&#x22;
+rollbar.reportMessage(&#x22;Response time exceeded threshold of 1s&#x22;, &#x22;warning&#x22;, request, callback);
+
+// reports a string message along with additional data conforming to the Rollbar API Schema
+// documented here: https://rollbar.com/docs/api/items_post/
+// only the first two params are required
+rollbar.<span class="apidocCodeKeywordSpan">reportMessageWithPayloadData</span>(&#x22;Response time exceeded threshold of 1s&#x22
+;, {
+    level: &#x22;warning&#x22;,
+    custom: {
+      threshold: 1,
+      timeElapsed: 2.3
+    }
+  }, request, callback);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.notifier.wait" id="apidoc.element.rollbar.notifier.wait">
+        function <span class="apidocSignatureSpan">rollbar.notifier.</span>wait
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">wait = function (callback) {
+  if (exports.pendingItemsCount() === 0) {
+    callback();
+  } else {
+    waitCallback = callback;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+
+## Waiting on pending items
+
+There may be some cases where you need to do a hard `process.exit(1)`, but you also don&#x27;t
+want to lose any errors that may be in-flight to Rollbar at the time.  That is where the
+`rollbar.<span class="apidocCodeKeywordSpan">wait</span>(cb)` function comes into play.  It will execute the callback when there
+ are
+no pending items being sent to Rollbar.  It could execute immediately (if there are none
+pending), or it could take a few seconds while the queue is flushed.
+
+```javascript
+var rollbar = require(&#x27;rollbar&#x27;);
+rollbar.init(rollbarToken);
+rollbar.handleError(&#x27;Test&#x27;);
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rollbar.parser" id="apidoc.module.rollbar.parser">module rollbar.parser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.parser.parseException" id="apidoc.element.rollbar.parser.parseException">
+        function <span class="apidocSignatureSpan">rollbar.parser.</span>parseException
+        <span class="apidocSignatureSpan">(exc, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseException = function (exc, callback) {
+  var multipleErrs = getMultipleErrors(exc.errors);
+
+  return exports.parseStack(exc.stack, function (err, stack) {
+    var message, clss, ret, firstErr, jadeMatch, jadeData;
+
+    if (err) {
+      logger.error(&#x27;could not parse exception, err: &#x27; + err);
+      return callback(err);
+    }
+    message = String(exc.message || &#x27;&#x3c;no message&#x3e;&#x27;) ;
+    clss = String(exc.name || &#x27;&#x3c;unknown&#x3e;&#x27;);
+
+    ret = {
+      class: clss,
+      message: message,
+      frames: stack
+    };
+
+    if (multipleErrs &#x26;&#x26; multipleErrs.length) {
+      firstErr = multipleErrs[0];
+      ret = {
+        class: clss,
+        message: String(firstErr.message || &#x27;&#x3c;no message&#x3e;&#x27;),
+        frames: stack
+      };
+    }
+
+    jadeMatch = message.match(jadeFramePattern);
+    if (jadeMatch) {
+      jadeData = parseJadeDebugFrame(message);
+      ret.message = jadeData.message;
+      ret.frames.push(jadeData.frame);
+    }
+    return callback(null, ret);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.parser.parseStack" id="apidoc.element.rollbar.parser.parseStack">
+        function <span class="apidocSignatureSpan">rollbar.parser.</span>parseStack
+        <span class="apidocSignatureSpan">(stack, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseStack = function (stack, callback) {
+  var lines, _stack = stack;
+
+  // Some JS frameworks (e.g. Meteor) might bury the stack property
+  while (typeof _stack === &#x27;object&#x27;) {
+    _stack = _stack &#x26;&#x26; _stack.stack;
+  }
+
+  // grab all lines except the first
+  lines = (_stack || &#x27;&#x27;).split(&#x27;\n&#x27;).slice(1);
+
+  // Parse out all of the frame and filename info
+  async.map(lines, parseFrameLine, function (err, frames) {
+    if (err) {
+      return callback(err);
+    }
+    frames.reverse();
+    async.filter(frames, function (frame, callback) { callback(!!frame); }, function (results) {
+      gatherContexts(results, callback);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rollbar.parser.cache" id="apidoc.module.rollbar.parser.cache">module rollbar.parser.cache</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.parser.cache.del" id="apidoc.element.rollbar.parser.cache.del">
+        function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>del
+        <span class="apidocSignatureSpan">(key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">del = function (key) {
+  del(cache[key])
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.parser.cache.dump" id="apidoc.element.rollbar.parser.cache.dump">
+        function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>dump
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dump = function () {
+  return cache
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.parser.cache.dumpLru" id="apidoc.element.rollbar.parser.cache.dumpLru">
+        function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>dumpLru
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dumpLru = function () {
+  return lruList
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.parser.cache.forEach" id="apidoc.element.rollbar.parser.cache.forEach">
+        function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>forEach
+        <span class="apidocSignatureSpan">(fn, thisp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">forEach = function (fn, thisp) {
+  thisp = thisp || this
+  var i = 0;
+  for (var k = mru - 1; k &#x3e;= 0 &#x26;&#x26; i &#x3c; itemCount; k--) if (lruList[k]) {
+    i++
+    var hit = lruList[k]
+    fn.call(thisp, hit.value, hit.key, this)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.parser.cache.get" id="apidoc.element.rollbar.parser.cache.get">
+        function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>get
+        <span class="apidocSignatureSpan">(key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (key) {
+  if (!hOP(cache, key)) return
+  var hit = cache[key]
+  if (maxAge &#x26;&#x26; (Date.now() - hit.now &#x3e; maxAge)) {
+    this.del(key)
+    return allowStale ? hit.value : undefined
+  }
+  shiftLU(hit)
+  hit.lu = mru ++
+  lruList[hit.lu] = hit
+  return hit.value
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+var express = require(&#x27;express&#x27;);
+var rollbar = require(&#x27;rollbar&#x27;);
+
+var app = express();
+
+app.<span class="apidocCodeKeywordSpan">get</span>(&#x27;/&#x27;, function(req, res) {
+  // ...
+});
+
+// Use the rollbar error handler to send exceptions to your rollbar account
+app.use(rollbar.errorHandler(&#x27;POST_SERVER_ITEM_ACCESS_TOKEN&#x27;));
+
+app.listen(6943);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.parser.cache.has" id="apidoc.element.rollbar.parser.cache.has">
+        function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>has
+        <span class="apidocSignatureSpan">(key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">has = function (key) {
+  if (!hOP(cache, key)) return false
+  var hit = cache[key]
+  if (maxAge &#x26;&#x26; (Date.now() - hit.now &#x3e; maxAge)) {
+    return false
+  }
+  return true
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.parser.cache.keys" id="apidoc.element.rollbar.parser.cache.keys">
+        function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>keys
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">keys = function () {
+  var keys = new Array(itemCount)
+  var i = 0
+  for (var k = mru - 1; k &#x3e;= 0 &#x26;&#x26; i &#x3c; itemCount; k--) if (lruList[k]) {
+    var hit = lruList[k]
+    keys[i++] = hit.key
+  }
+  return keys
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.parser.cache.lengthCalculator" id="apidoc.element.rollbar.parser.cache.lengthCalculator">
+        function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>lengthCalculator
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function naiveLength() { return 1 }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.parser.cache.reset" id="apidoc.element.rollbar.parser.cache.reset">
+        function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>reset
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reset = function () {
+  if (dispose) {
+    for (var k in cache) {
+      dispose(k, cache[k].value)
+    }
+  }
+  cache = {}
+  lruList = {}
+  lru = 0
+  mru = 0
+  length = 0
+  itemCount = 0
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.parser.cache.set" id="apidoc.element.rollbar.parser.cache.set">
+        function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>set
+        <span class="apidocSignatureSpan">(key, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (key, value) {
+  if (hOP(cache, key)) {
+    // dispose of the old one before overwriting
+    if (dispose) dispose(key, cache[key].value)
+    if (maxAge) cache[key].now = Date.now()
+    cache[key].value = value
+    this.get(key)
+    return true
+  }
+
+  var len = lengthCalculator(value)
+  var age = maxAge ? Date.now() : 0
+  var hit = new Entry(key, value, mru++, len, age)
+
+  // oversized objects fall out of cache automatically.
+  if (hit.length &#x3e; max) {
+    if (dispose) dispose(key, value)
+    return false
+  }
+
+  length += hit.length
+  lruList[hit.lu] = cache[key] = hit
+  itemCount ++
+
+  if (length &#x3e; max) trim()
+  return true
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rollbar.parser.cache.values" id="apidoc.element.rollbar.parser.cache.values">
+        function <span class="apidocSignatureSpan">rollbar.parser.cache.</span>values
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">values = function () {
+  var values = new Array(itemCount)
+  var i = 0
+  for (var k = mru - 1; k &#x3e;= 0 &#x26;&#x26; i &#x3c; itemCount; k--) if (lruList[k]) {
+    var hit = lruList[k]
+    values[i++] = hit.value
+  }
+  return values
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
