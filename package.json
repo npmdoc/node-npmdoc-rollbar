@@ -1,7 +1,7 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
     "buildNpmdoc": "rollbar",
-    "description": "api documentation for [rollbar (v0.6.5)](https://rollbar.com/docs/notifier/node_rollbar/) [![npm package](https://img.shields.io/npm/v/npmdoc-rollbar.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-rollbar) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-rollbar.svg)](https://travis-ci.org/npmdoc/node-npmdoc-rollbar)",
+    "description": "#### api documentation for  [rollbar (v0.6.5)](https://rollbar.com/docs/notifier/node_rollbar/)  [![npm package](https://img.shields.io/npm/v/npmdoc-rollbar.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-rollbar) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-rollbar.svg)](https://travis-ci.org/npmdoc/node-npmdoc-rollbar)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "rollbar": "*",
@@ -36,5 +36,5 @@
         "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.1"
+    "version": "0.0.2"
 }
